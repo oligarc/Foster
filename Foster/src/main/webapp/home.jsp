@@ -16,6 +16,7 @@
 	rel="stylesheet"
 	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
 	crossorigin="anonymous" />
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -59,6 +60,15 @@
 									<c:out value="${producto.titulo}" />
 								</h4>
 								<p class="card-text">${producto.sumario}</p>
+								<p class ="text-center">
+									<span class="rating">
+									<a href="ControllerAdmin?operacion=rating&idproducto=${producto.idProducto}&puntos=1">&#9733</a>
+									<a href="ControllerAdmin?operacion=rating&idproducto=${producto.idProducto}&puntos=2">&#9733</a>
+									<a href="ControllerAdmin?operacion=rating&idproducto=${producto.idProducto}&puntos=3">&#9733</a>
+									<a href="ControllerAdmin?operacion=rating&idproducto=${producto.idProducto}&puntos=4">&#9733</a>
+									<a href="ControllerAdmin?operacion=rating&idproducto=${producto.idProducto}&puntos=5">&#9733</a>
+									</span>
+									</p>
 							</div>
 					</div>
 				</div>
@@ -67,9 +77,9 @@
 			
 			</c:if>
 	</main>
-	<footer style="background-color: rgb(23, 24, 71)">
-		<h1 class="text-center" style="color: white">Si cenas aquí eres
-			tonto</h1>
+	<footer style="background-color: rgb(23, 24, 71)" class="py-1 text-white position-fixed bottom-0 start-0 w-100">
+		<h6 class="text-center">Foster's Hollywood</h6>
+		<p class="position-absolute top-0 end-0">${msg}</p>
 	</footer>
 	<!-- Bootstrap JavaScript Libraries -->
 	<script

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import daos.DaoCategoria;
 import daos.DaoProducto;
+import daos.DaoPunto;
 import entidades.Categoria;
 import entidades.Producto;
 
@@ -62,8 +63,21 @@ public class ControllerAdmin extends HttpServlet {
 			request.setAttribute("nombreCategoria", nombreCategoria);
 			request.setAttribute("listaProductorPorCategoria", listaProductos);
 			request.getRequestDispatcher("home.jsp").forward(request, response);
+			break;
 			
+		case "rating":
 			
+			String idProducto = request.getParameter("idproducto");
+			int idProductoParseado = Integer.parseInt(idProducto);
+			String cantidadPuntos = request.getParameter("puntos");
+			int cantidadPuntosParseado = Integer.parseInt(cantidadPuntos);
+			
+			DaoPunto daoPunto = new DaoPunto();
+			daoPunto.aniadirPuntuaje(idProductoParseado, cantidadPuntosParseado);
+			
+			String msg = "Anotados " +cantidadPuntosParseado + " puntos a " +idProductoParseado;
+			request.setAttribute("msg", msg);
+			request.getRequestDispatcher("home.jsp").forward(request, response);
 			
 			break;
 			
